@@ -485,7 +485,7 @@ function Home(_ref) {
       className: "home__description",
       children: "Some description if needed"
     }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("button", {
-      className: "home__start-button",
+      className: "btn",
       onClick: function onClick() {
         return onStart && onStart();
       },
