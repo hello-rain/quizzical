@@ -4,7 +4,8 @@ module.exports = {
   output: {
     filename: "[name].pack.js",
     // emit bundles to project root (index.pack.js in repo root)
-    path: path.resolve(__dirname, "."),
+    // emit bundles to the public folder so the app can be served from /public
+    path: path.resolve(__dirname, "public"),
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
@@ -32,6 +33,7 @@ module.exports = {
     ],
   },
   entry: {
-    index: "./index.js",
+    // point entry at the actual source file in `src/`
+    index: "./src/index.js",
   },
 };

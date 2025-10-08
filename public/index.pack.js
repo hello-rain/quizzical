@@ -474,21 +474,23 @@ if (process.env.NODE_ENV === 'production') {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__);
 
-function Home() {
-  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["Fragment"], {
-    children: /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsxs"])("div", {
-      className: "quiz",
-      children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("h1", {
-        className: "quiz__title",
-        children: "Quizzical"
-      }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("p", {
-        className: "quiz__description",
-        children: "Some description if needed"
-      }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("button", {
-        className: "quiz__start-button",
-        children: "Start quiz"
-      })]
-    })
+function Home(_ref) {
+  var onStart = _ref.onStart;
+  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsxs"])("div", {
+    className: "home",
+    children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("h1", {
+      className: "home__title",
+      children: "Quizzical"
+    }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("p", {
+      className: "home__description",
+      children: "Some description if needed"
+    }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("button", {
+      className: "home__start-button",
+      onClick: function onClick() {
+        return onStart && onStart();
+      },
+      children: "Start quiz"
+    })]
   });
 }
 
