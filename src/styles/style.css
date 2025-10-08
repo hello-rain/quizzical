@@ -1,3 +1,18 @@
+/* Design tokens */
+:root {
+  --color-text: #293264;
+  --color-bg: #f5f7fb;
+  --color-primary: #4d5b9e;
+  --radius: 15px;
+  --btn-padding: 1.2rem;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  --font-ui: "Karla", sans-serif;
+  --max-width: 550px;
+  --fs-title: 3rem;
+  --fs-desc: 1.5rem;
+}
+
 /* Reset */
 
 /* 1. Use a more intuitive box-sizing model */
@@ -33,15 +48,12 @@ body {
   /* 6. Improve text rendering */
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
-}
 
-/* General Styling */
-
-body {
-  font-family: "Inter", sans-serif;
+  /* General Styling */
+  font-family: var(--font-sans);
   font-weight: 400;
-  color: #293264;
-  background-color: #f5f7fb;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 }
 
 /* Top-right decorative blob (fixed to viewport) */
@@ -50,8 +62,10 @@ body::before {
   position: fixed;
   top: -4rem; /* nudge partly off-screen */
   right: -4rem; /* nudge partly off-screen */
+
   width: 30rem; /* tune size as needed */
   height: 30rem;
+
   background-image: url("../assets/images/blob-yellow.svg");
   background-repeat: no-repeat;
   background-size: contain; /* preserves aspect ratio */
@@ -66,8 +80,10 @@ body::after {
   position: fixed;
   left: -6rem;
   bottom: -10rem;
+
   width: 28rem;
   height: 28rem;
+
   background-image: url("../assets/images/blob-blue.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -75,6 +91,8 @@ body::after {
   pointer-events: none;
   opacity: 0.9;
 }
+
+/* General Styles */
 
 #root {
   display: flex;
