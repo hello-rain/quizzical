@@ -1,0 +1,21 @@
+{
+  "name": "quizzical",
+  "description": "https://scrimba.com/frontend-path-c0j/~0vh/s0ahb0ji6j/head",
+  "scripts": {
+    "watch": "webpack -w",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.28.4",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "webpack": "^2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.4",
+    "@babel/plugin-transform-runtime": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-react": "^7.27.1",
+    "babel-loader": "^8.4.1"
+  }
+}

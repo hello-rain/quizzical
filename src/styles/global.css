@@ -1,0 +1,83 @@
+/* Reset */
+
+/* 1. Use a more intuitive box-sizing model */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/* 2. Reset default margin, padding, and font inheritance */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* 3. Remove default list styles for elements with a list role */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* 4. Set core defaults */
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100%;
+  /* 5. Add accessible line-height */
+  line-height: 1.5;
+  /* 6. Improve text rendering */
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* General Styling */
+
+body {
+  background-color: #f5f7fb;
+}
+
+/* Top-right decorative blob (fixed to viewport) */
+body::before {
+  content: "";
+  position: fixed;
+  top: -4rem; /* nudge partly off-screen */
+  right: -4rem; /* nudge partly off-screen */
+  width: 30rem; /* tune size as needed */
+  height: 30rem;
+  background-image: url("../assets/images/blob-yellow.svg");
+  background-repeat: no-repeat;
+  background-size: contain; /* preserves aspect ratio */
+  z-index: -1; /* behind page content */
+  pointer-events: none; /* clicks pass through */
+  opacity: 0.95; /* optional visual tweak */
+}
+
+/* Bottom-left decorative blob */
+body::after {
+  content: "";
+  position: fixed;
+  left: -6rem;
+  bottom: -10rem;
+  width: 28rem;
+  height: 28rem;
+  background-image: url("../assets/images/blob-blue.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+}
