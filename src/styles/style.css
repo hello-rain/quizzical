@@ -102,3 +102,63 @@ body::after {
   height: 100%;
   width: 100%;
 }
+
+.home {
+  display: flex;
+  flex-direction: column;
+
+  max-width: var(--max-width);
+
+  text-align: center;
+}
+
+.home__title {
+  margin: 0 0 0.5em 0;
+
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: var(--fs-title);
+}
+
+.home__description {
+  margin-bottom: 1.5em;
+
+  font-size: var(--fs-desc);
+}
+
+.btn {
+  padding: var(--btn-padding);
+
+  color: var(--color-bg);
+  font-weight: 500;
+  font-size: 1.2rem;
+
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(77, 91, 158, 0.18);
+  outline-offset: 3px;
+  box-shadow: 0 6px 18px rgba(77, 91, 158, 0.12);
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+
+/* Small responsive adjustments */
+@media (max-width: 480px) {
+  :root {
+    --fs-title: 2.2rem;
+    --fs-desc: 1.125rem;
+    --max-width: 95%;
+  }
+}

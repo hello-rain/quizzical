@@ -4,7 +4,7 @@ export default function Home({ onStart }) {
       <h1 className="home__title">Quizzical</h1>
       <p className="home__description">Some description if needed</p>
       <button
-        className="home__start-button"
+        className="btn"
         onClick={() => onStart && onStart()}
       >
         Start quiz
