@@ -1,9 +1,13 @@
-export default function QuizStart(props) {
+export default function QuizStart({
+  onStart,
+  introText = "Some description if needed",
+  disabled = false,
+}) {
   return (
     <div className="quiz-start">
       <h1 className="quiz-start__title">Quizzical</h1>
-      <p className="quiz-start__description">Some description if needed</p>
-      <button className="btn" onClick={props.flipStartQuiz}>
+      <p className="quiz-start__description">{introText}</p>
+      <button className="btn" onClick={onStart} disabled={disabled}>
         Start quiz
       </button>
     </div>
