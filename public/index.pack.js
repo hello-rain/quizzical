@@ -406,7 +406,7 @@ if (process.env.NODE_ENV === 'production') {
 /* harmony export (immutable) */ __webpack_exports__["a"] = App;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Home__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_QuizStart__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__);
 
@@ -415,7 +415,7 @@ if (process.env.NODE_ENV === 'production') {
 function App() {
   return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("div", {
     className: "root",
-    children: /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_1__components_Home__["a" /* default */], {})
+    children: /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_1__components_QuizStart__["a" /* default */], {})
   });
 }
 
@@ -470,25 +470,22 @@ if (process.env.NODE_ENV === 'production') {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = Home;
+/* harmony export (immutable) */ __webpack_exports__["a"] = QuizStart;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__);
 
-function Home(_ref) {
-  var onStart = _ref.onStart;
+function QuizStart(props) {
   return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsxs"])("div", {
-    className: "home",
+    className: "quiz-start",
     children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("h1", {
-      className: "home__title",
+      className: "quiz-start__title",
       children: "Quizzical"
     }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("p", {
-      className: "home__description",
+      className: "quiz-start__description",
       children: "Some description if needed"
     }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("button", {
       className: "btn",
-      onClick: function onClick() {
-        return onStart && onStart();
-      },
+      onClick: props.flipStartQuiz,
       children: "Start quiz"
     })]
   });

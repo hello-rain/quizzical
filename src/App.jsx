@@ -1,10 +1,10 @@
-import React from "react";
-import Home from "./components/Home";
+import { useState, useEffect } from "react";
+import QuizStart from "./components/QuizStart";
 
 export default function App() {
   return (
     <div className="root">
-      <Home />
+      <QuizStart />
     </div>
   );
 }
