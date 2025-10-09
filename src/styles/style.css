@@ -103,7 +103,7 @@ body::after {
   width: 100%;
 }
 
-.home {
+.quiz-start {
   display: flex;
   flex-direction: column;
 
@@ -112,7 +112,7 @@ body::after {
   text-align: center;
 }
 
-.home__title {
+.quiz-start__title {
   margin: 0 0 0.5em 0;
 
   font-family: var(--font-ui);
@@ -120,7 +120,7 @@ body::after {
   font-size: var(--fs-title);
 }
 
-.home__description {
+.quiz-start__description {
   margin-bottom: 1.5em;
 
   font-size: var(--fs-desc);
