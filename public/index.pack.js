@@ -409,13 +409,49 @@ if (process.env.NODE_ENV === 'production') {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_QuizStart__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__);
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
 function App() {
-  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("div", {
-    className: "root",
-    children: /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_1__components_QuizStart__["a" /* default */], {})
+  // App state
+  var _useState = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    isStarted = _useState2[0],
+    setIsStarted = _useState2[1];
+  var _useState3 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(null),
+    _useState4 = _slicedToArray(_useState3, 2),
+    questions = _useState4[0],
+    setQuestions = _useState4[1];
+  var _useState5 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
+    _useState6 = _slicedToArray(_useState5, 2),
+    loading = _useState6[0],
+    setLoading = _useState6[1];
+  var _useState7 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(null),
+    _useState8 = _slicedToArray(_useState7, 2),
+    error = _useState8[0],
+    setError = _useState8[1];
+  function startQuiz() {
+    setIsStarted(true);
+  }
+
+  // Render start screen. After starting, show loading, error, or questions.
+  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["Fragment"], {
+    children: isStarted ? loading ? /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("p", {
+      children: "Loading questions\u2026"
+    }) : error ? /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsxs"])("p", {
+      children: ["Error: ", error]
+    }) : /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("p", {
+      children: "Questions"
+    }) : /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_1__components_QuizStart__["a" /* default */], {
+      onStart: startQuiz,
+      disabled: loading
+    })
   });
 }
 
@@ -474,7 +510,12 @@ if (process.env.NODE_ENV === 'production') {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__);
 
-function QuizStart(props) {
+function QuizStart(_ref) {
+  var onStart = _ref.onStart,
+    _ref$introText = _ref.introText,
+    introText = _ref$introText === void 0 ? "Some description if needed" : _ref$introText,
+    _ref$disabled = _ref.disabled,
+    disabled = _ref$disabled === void 0 ? false : _ref$disabled;
   return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsxs"])("div", {
     className: "quiz-start",
     children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("h1", {
@@ -482,10 +523,11 @@ function QuizStart(props) {
       children: "Quizzical"
     }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("p", {
       className: "quiz-start__description",
-      children: "Some description if needed"
+      children: introText
     }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("button", {
       className: "btn",
-      onClick: props.flipStartQuiz,
+      onClick: onStart,
+      disabled: disabled,
       children: "Start quiz"
     })]
   });
