@@ -50,7 +50,7 @@ export default function App() {
 
   // Render start screen. After starting, show loading, error, or questions.
   return (
-    <>
+    <main>
       {isStarted ? (
         loading ? (
           <p className="quiz-loading">Loading questions…</p>
@@ -62,6 +62,6 @@ export default function App() {
       ) : (
         <QuizStart onStart={startQuiz} disabled={loading} />
       )}
-    </>
+    </main>
   );
 }
