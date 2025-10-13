@@ -2,15 +2,21 @@
 :root {
   --color-text: #293264;
   --color-bg: #f5f7fb;
-  --color-primary: #4d5b9e;
-  --radius: 15px;
-  --btn-padding: 1.2rem;
+  --color-btn: #4d5b9e;
+
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial;
   --font-ui: "Karla", sans-serif;
-  --max-width: 550px;
+
   --fs-title: 3rem;
   --fs-desc: 1.5rem;
+  --fw-regular: 400;
+  --fw-medium: 700;
+  --fw-bold: 800;
+
+  --max-width: 550px;
+  --radius: 15px;
+  --btn-padding: 1.2rem;
 }
 
 /* Reset */
