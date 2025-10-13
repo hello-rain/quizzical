@@ -66,18 +66,18 @@ body {
 body::before {
   content: "";
   position: fixed;
-  top: -4rem; /* nudge partly off-screen */
-  right: -4rem; /* nudge partly off-screen */
+  top: -4rem;
+  right: -4rem;
 
   width: 30rem; /* tune size as needed */
   height: 30rem;
 
   background-image: url("../assets/images/blob-yellow.svg");
   background-repeat: no-repeat;
-  background-size: contain; /* preserves aspect ratio */
-  z-index: -1; /* behind page content */
-  pointer-events: none; /* clicks pass through */
-  opacity: 0.95; /* optional visual tweak */
+  background-size: contain;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.95;
 }
 
 /* Bottom-left decorative blob */
@@ -145,9 +145,10 @@ body::after {
   font-weight: var(--fw-medium);
   font-size: 1.2rem;
 
-  background-color: var(--color-primary);
+  background-color: var(--color-btn);
   border: none;
   border-radius: var(--radius);
+
   cursor: pointer;
   transition: transform 120ms ease, box-shadow 120ms ease;
   -webkit-tap-highlight-color: transparent;
