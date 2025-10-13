@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import QuizStart from "./components/QuizStart";
+import QuizQuestions from "./components/QuizQuestions";
 
 export default function App() {
   // App state
@@ -35,7 +36,7 @@ export default function App() {
         }
 
         const data = await response.json();
-        setQuestions(data.results ?? data);
+        setQuestions(data.results);
       } catch (error) {
         if (error.name !== "AbortError") setError(error.message);
       } finally {
@@ -56,7 +57,7 @@ export default function App() {
         ) : error ? (
           <p>Error: {error}</p>
         ) : (
-          <p>Questions</p>
+          <QuizQuestions questions={questions} />
         )
       ) : (
         <QuizStart onStart={startQuiz} disabled={loading} />
