@@ -53,7 +53,7 @@ export default function App() {
     <>
       {isStarted ? (
         loading ? (
-          <p>Loading questions…</p>
+          <p className="quiz-loading">Loading questions…</p>
         ) : error ? (
           <p>Error: {error}</p>
         ) : (
