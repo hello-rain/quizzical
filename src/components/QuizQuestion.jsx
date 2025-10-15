@@ -1,5 +1,5 @@
 export default function QuizQuestion() {
-  /* Fisher-Yates shuffle - non-mutating: returns a new array */
+  // Fisher-Yates shuffle - non-mutating: returns a new array
   function shuffleArray(arr) {
     const newArr = arr.slice();
     for (let i = newArr.length - 1; i > 0; i--) {
@@ -7,6 +7,13 @@ export default function QuizQuestion() {
       [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
     return newArr;
+
+    // small helper to decode HTML entities from OpenTDB
+    function decodeHtml(html) {
+      const text = document.createElement("textarea");
+      text.value = html;
+      return text.value;
+    }
   }
 
   // category: "General Knowledge";
