@@ -20,7 +20,17 @@ function decodeHtml(html) {
   return text.value;
 }
 
-function QuizQuestion({ question, questionIndex, selected, onAnswer }) {}
+function QuizQuestion({ question, questionIndex, selected, onAnswer }) {
+  if (!question) return null;
+
+  // Shuffle choices once. Re-run when the question changes.
+  const choices = useMemo(() => {
+    const allChoices = [...question.incorrect_answers, question.correct_answer];
+    return shuffleArray(allChoices);
+  }, [question]);
+
+  return <h2>{decodeHtml(question.question)}</h2>;
+}
 
 export default QuizQuestion;
 
