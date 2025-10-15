@@ -14,13 +14,16 @@ function shuffleArray(arr) {
 
 // Decode HTML entities returned by the API into plain text
 function decodeHtml(html) {
+  if (typeof document === "undefined") return html;
   const text = document.createElement("textarea");
-  text.value = html;
+  text.innerHTML = html;
   return text.value;
 }
 
 function QuizQuestion({ question, questionIndex, selected, onAnswer }) {}
+
 export default QuizQuestion;
+
 // category: "General Knowledge";
 // correct_answer: "Swiss Air";
 // difficulty: "easy";
