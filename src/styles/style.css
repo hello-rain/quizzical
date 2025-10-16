@@ -156,6 +156,11 @@ main {
   border-bottom: 1px solid var(--color-border);
 }
 
+.quiz-questions__title {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-subtitle);
+}
+
 .btn {
   padding: var(--btn-padding);
 
