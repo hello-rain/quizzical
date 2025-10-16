@@ -31,6 +31,34 @@ function QuizQuestion({ question, questionIndex, selected, onAnswer }) {
     ];
     return shuffleArray(allChoices);
   }, [question.question]);
+
+  return (
+    <fieldset className="quiz-questions__item">
+      <legend className="quiz-questions__title">
+        {decodeHtml(question.question)}
+      </legend>
+      <div className="quiz-questions__choices">
+        {choices.map((choice, choiceIndex) => {
+          const id = `q-${questionIndex}-opt-${choiceIndex}`;
+          return (
+            <label key={id} className="quiz-questions__choice" htmlFor={id}>
+              <input
+                id={id}
+                type="radio"
+                name={`q-${questionIndex}`}
+                value={choice}
+                checked={selected === choice} // true => this radio is selected
+                onChange={() => onAnswer && onAnswer(questionIndex, choice)} // save answer
+              />
+              <span className="quiz-questions__choiceBtn">
+                {decodeHtml(choice)}
+              </span>
+            </label>
+          );
+        })}
+      </div>
+    </fieldset>
+  );
 }
 
 export default QuizQuestion;
