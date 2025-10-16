@@ -17,5 +17,18 @@ export default function QuizQuestions({ questions }) {
     setAnswers((prev) => ({ ...prev, [questionIndex]: choice }));
   }
 
+  // render each QuizQuestion, pass selected value and onAnswer handler
+  const questionElements = questionsArr.map((question, questionIndex) => {
+    return (
+      <QuizQuestion
+        key={questionIndex}
+        question={question}
+        questionIndex={questionIndex}
+        selected={answers[questionIndex]}
+        onAnswer={handleAnswer}
+      />
+    );
+  });
+
   return <div className="quiz-questions">{questionElements}</div>;
 }

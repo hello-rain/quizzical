@@ -650,7 +650,7 @@ function QuizQuestion(_ref2) {
     })]
   });
 }
-/* unused harmony default export */ var _unused_webpack_default_export = (QuizQuestion);
+/* harmony default export */ __webpack_exports__["a"] = (QuizQuestion);
 
 // category: "General Knowledge";
 // correct_answer: "Swiss Air";
@@ -707,6 +707,16 @@ function QuizQuestions(_ref) {
       return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, questionIndex, choice));
     });
   }
+
+  // render each QuizQuestion, pass selected value and onAnswer handler
+  var questionElements = questionsArr.map(function (question, questionIndex) {
+    return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_1__QuizQuestion__["a" /* default */], {
+      question: question,
+      questionIndex: questionIndex,
+      selected: answers[questionIndex],
+      onAnswer: handleAnswer
+    }, questionIndex);
+  });
   return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("div", {
     className: "quiz-questions",
     children: questionElements
