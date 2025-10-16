@@ -150,6 +150,12 @@ main {
   gap: 1em;
 }
 
+.quiz-questions__item {
+  padding: 1em;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+}
+
 .btn {
   padding: var(--btn-padding);
 
