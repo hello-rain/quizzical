@@ -21,7 +21,7 @@ export default function App() {
     // Run the fetch once when the quiz starts (prevents duplicate requests in dev/StrictMode)
     if (!isStarted || fetchedRef.current) return;
     fetchedRef.current = true;
-
+                                                     
     const controller = new AbortController();
 
     async function fetchData() {

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -264,9 +264,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(14);
+  module.exports = __webpack_require__(16);
 } else {
-  module.exports = __webpack_require__(13);
+  module.exports = __webpack_require__(15);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -376,9 +376,9 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(12);
+  module.exports = __webpack_require__(14);
 } else {
-  module.exports = __webpack_require__(11);
+  module.exports = __webpack_require__(13);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -391,9 +391,9 @@ if (process.env.NODE_ENV === 'production') {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(18);
+  module.exports = __webpack_require__(20);
 } else {
-  module.exports = __webpack_require__(17);
+  module.exports = __webpack_require__(19);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -406,9 +406,10 @@ if (process.env.NODE_ENV === 'production') {
 /* harmony export (immutable) */ __webpack_exports__["a"] = App;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_QuizStart__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_QuizStart__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_QuizQuestions__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__);
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -419,6 +420,7 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
 
 
 
@@ -458,14 +460,14 @@ function App() {
     }
     function _fetchData() {
       _fetchData = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-        var _data$results, response, data, _t;
+        var response, data, _t;
         return _regenerator().w(function (_context) {
           while (1) switch (_context.p = _context.n) {
             case 0:
               setLoading(true);
               _context.p = 1;
               _context.n = 2;
-              return fetch("https://opentdb.com/api.php?amount=10", {
+              return fetch("https://opentdb.com/api.php?amount=10&type=multiple", {
                 signal: controller.signal
               });
             case 2:
@@ -480,7 +482,7 @@ function App() {
               return response.json();
             case 4:
               data = _context.v;
-              setQuestions((_data$results = data.results) !== null && _data$results !== void 0 ? _data$results : data);
+              setQuestions(data.results);
               _context.n = 6;
               break;
             case 5:
@@ -505,14 +507,15 @@ function App() {
   }, [isStarted]);
 
   // Render start screen. After starting, show loading, error, or questions.
-  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["Fragment"], {
-    children: isStarted ? loading ? /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("p", {
+  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__["jsx"])("main", {
+    children: isStarted ? loading ? /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__["jsx"])("p", {
+      className: "quiz-loading",
       children: "Loading questions\u2026"
-    }) : error ? /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsxs"])("p", {
+    }) : error ? /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__["jsxs"])("p", {
       children: ["Error: ", error]
-    }) : /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("p", {
-      children: "Questions"
-    }) : /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_1__components_QuizStart__["a" /* default */], {
+    }) : /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_2__components_QuizQuestions__["a" /* default */], {
+      questions: questions
+    }) : /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_1__components_QuizStart__["a" /* default */], {
       onStart: startQuiz,
       disabled: loading
     })
@@ -558,15 +561,160 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(10);
+  module.exports = __webpack_require__(12);
 } else {
-  module.exports = __webpack_require__(9);
+  module.exports = __webpack_require__(11);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__);
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+// QuizQuestion - render one question with shuffled choices
+
+
+
+// Fisher-Yates shuffle - non-mutating: returns a new shuffled array
+
+function shuffleArray(arr) {
+  var newArr = arr.slice();
+  for (var i = newArr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var _ref = [newArr[j], newArr[i]];
+    newArr[i] = _ref[0];
+    newArr[j] = _ref[1];
+  }
+  return newArr;
+}
+
+// Decode HTML entities returned by the API into plain text
+function decodeHtml(html) {
+  if (typeof document === "undefined") return html;
+  var text = document.createElement("textarea");
+  text.innerHTML = html;
+  return text.value;
+}
+function QuizQuestion(_ref2) {
+  var question = _ref2.question,
+    questionIndex = _ref2.questionIndex,
+    selected = _ref2.selected,
+    onAnswer = _ref2.onAnswer;
+  if (!question) return null;
+
+  // Shuffle choices once. Re-run when the question changes.
+  var choices = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useMemo"])(function () {
+    var allChoices = [question.correct_answer].concat(_toConsumableArray(question.incorrect_answers || []));
+    return shuffleArray(allChoices);
+  }, [question.question]);
+  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsxs"])("fieldset", {
+    className: "quiz-questions__item",
+    children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsx"])("legend", {
+      className: "quiz-questions__title",
+      children: decodeHtml(question.question)
+    }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsx"])("div", {
+      className: "quiz-questions__choices",
+      children: choices.map(function (choice, choiceIndex) {
+        var id = "q-".concat(questionIndex, "-opt-").concat(choiceIndex);
+        return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsxs"])("label", {
+          className: "quiz-questions__choice",
+          htmlFor: id,
+          children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsx"])("input", {
+            id: id,
+            type: "radio",
+            name: "q-".concat(questionIndex),
+            value: choice,
+            checked: selected === choice // true => this radio is selected
+            ,
+            onChange: function onChange() {
+              return onAnswer && onAnswer(questionIndex, choice);
+            } // save answer
+          }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsx"])("span", {
+            className: "quiz-questions__choiceBtn",
+            children: decodeHtml(choice)
+          })]
+        }, id);
+      })
+    })]
+  });
+}
+/* unused harmony default export */ var _unused_webpack_default_export = (QuizQuestion);
+
+// category: "General Knowledge";
+// correct_answer: "Swiss Air";
+// difficulty: "easy";
+// incorrect_answers: (3)[("Air France", "British Airways", "TWA")];
+// question: "What airline was the owner of the plane that crashed off the coast of Nova Scotia in 1998?";
+// type: "multiple";
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = QuizQuestions;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__QuizQuestion__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__);
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+// QuizQuestions - renders the quiz question list and stores user answers
+
+
+
+
+function QuizQuestions(_ref) {
+  var questions = _ref.questions;
+  // Ensure questions is an array
+  var questionsArr = Array.isArray(questions) ? questions : [];
+  if (questionsArr.length === 0) return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("h2", {
+    children: "No questions"
+  });
+
+  // answers map: { [questionIndex]: selectedChoice }
+  var _useState = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])({}),
+    _useState2 = _slicedToArray(_useState, 2),
+    answers = _useState2[0],
+    setAnswers = _useState2[1];
+
+  // update an answer for a given question (called by child: onAnswer(index, choice))
+  function handleAnswer(questionIndex, choice) {
+    setAnswers(function (prev) {
+      return _objectSpread(_objectSpread({}, prev), {}, _defineProperty({}, questionIndex, choice));
+    });
+  }
+  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("div", {
+    className: "quiz-questions",
+    children: questionElements
+  });
+}
+
+/***/ }),
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -580,7 +728,7 @@ function QuizStart(_ref) {
     introText = _ref$introText === void 0 ? "Some description if needed" : _ref$introText,
     _ref$disabled = _ref.disabled,
     disabled = _ref$disabled === void 0 ? false : _ref$disabled;
-  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsxs"])("div", {
+  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsxs"])("section", {
     className: "quiz-start",
     children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_jsx_runtime__["jsx"])("h1", {
       className: "quiz-start__title",
@@ -598,7 +746,7 @@ function QuizStart(_ref) {
 }
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -617,7 +765,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_2__App_jsx__["a" /* default */], {}), document.getElementById("root"));
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -639,7 +787,7 @@ if (process.env.NODE_ENV !== "production") {
 var React = __webpack_require__(1);
 var _assign = __webpack_require__(2);
 var Scheduler = __webpack_require__(4);
-var tracing = __webpack_require__(19);
+var tracing = __webpack_require__(21);
 
 var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 
@@ -26887,7 +27035,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27191,7 +27339,7 @@ exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!rk(c))throw Er
 
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28420,7 +28568,7 @@ exports.jsxs = jsxs;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28437,7 +28585,7 @@ function q(c,a,k){var b,d={},e=null,l=null;void 0!==k&&(e=""+k);void 0!==a.key&&
 
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30778,7 +30926,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30808,7 +30956,7 @@ exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.u
 
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31163,7 +31311,7 @@ exports.unstable_wrap = unstable_wrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31179,7 +31327,7 @@ var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unst
 
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31833,7 +31981,7 @@ exports.unstable_wrapCallback = unstable_wrapCallback;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31860,16 +32008,16 @@ exports.unstable_wrapCallback=function(a){var b=P;return function(){var c=P;P=b;
 
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(16);
+  module.exports = __webpack_require__(18);
 } else {
-  module.exports = __webpack_require__(15);
+  module.exports = __webpack_require__(17);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
