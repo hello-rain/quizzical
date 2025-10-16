@@ -1,16 +1,18 @@
 /* Design tokens */
 :root {
-  --color-text: #293264;
-  --color-bg: #f5f7fb;
-  --color-btn: #4d5b9e;
-  --color-border: #dbdef0;
+  --clr-text: #293264;
+  --clr-bg: #f5f7fb;
+  --clr-btn: #4d5b9e;
+  --clr-border: #dbdef0;
 
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+  --ff-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial;
-  --font-ui: "Karla", sans-serif;
+  --ff-ui: "Karla", sans-serif;
 
   --fs-title: 3rem;
   --fs-subtitle: 1.5rem;
+  --fs-btn: 1rem;
+
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-bold: 700;
@@ -57,10 +59,10 @@ body {
   -webkit-font-smoothing: antialiased;
 
   /* General Styling */
-  font-family: var(--font-sans);
+  font-family: var(--ff-sans);
   font-weight: var(--fw-regular);
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  color: var(--clr-text);
+  background-color: var(--clr-bg);
 }
 
 /* Top-right decorative blob (fixed to viewport) */
@@ -127,7 +129,7 @@ main {
 .quiz-start__title {
   margin: 0 0 0.5em 0;
 
-  font-family: var(--font-ui);
+  font-family: var(--ff-ui);
   font-weight: var(--fw-bold);
   font-size: var(--fs-title);
 }
@@ -139,7 +141,7 @@ main {
 }
 
 .quiz-loading {
-  font-family: var(--font-ui);
+  font-family: var(--ff-ui);
   font-weight: var(--fw-bold);
   font-size: var(--fs-subtitle);
 }
@@ -153,7 +155,7 @@ main {
 .quiz-questions__item {
   padding: 1em;
   border: none;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--clr-border);
 }
 
 .quiz-questions__title {
@@ -164,11 +166,11 @@ main {
 .btn {
   padding: var(--btn-padding);
 
-  color: var(--color-bg);
+  color: var(--clr-bg);
   font-weight: var(--fw-medium);
   font-size: 1.2rem;
 
-  background-color: var(--color-btn);
+  background-color: var(--clr-btn);
   border: none;
   border-radius: var(--radius);
 
@@ -196,5 +198,6 @@ main {
     --fs-title: 2.2rem;
     --fs-subtitle: 1rem;
     --max-width: 95%;
+    --fs-btn: 0.8rem;
   }
 }
