@@ -25,11 +25,12 @@ function QuizQuestion({ question, questionIndex, selected, onAnswer }) {
 
   // Shuffle choices once. Re-run when the question changes.
   const choices = useMemo(() => {
-    const allChoices = [...question.incorrect_answers, question.correct_answer];
+    const allChoices = [
+      question.correct_answer,
+      ...(question.incorrect_answers || []),
+    ];
     return shuffleArray(allChoices);
-  }, [question]);
-
-  return <h2>{decodeHtml(question.question)}</h2>;
+  }, [question.question]);
 }
 
 export default QuizQuestion;
