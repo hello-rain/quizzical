@@ -3,6 +3,7 @@
   --color-text: #293264;
   --color-bg: #f5f7fb;
   --color-btn: #4d5b9e;
+  --color-border: #dbdef0;
 
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial;
@@ -101,12 +102,17 @@ body::after {
 /* General Styles */
 
 #root {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
-
-  height: 100%;
-  width: 100%;
 }
 
 .quiz-start {

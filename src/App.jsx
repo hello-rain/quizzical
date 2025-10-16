@@ -21,14 +21,14 @@ export default function App() {
     // Run the fetch once when the quiz starts (prevents duplicate requests in dev/StrictMode)
     if (!isStarted || fetchedRef.current) return;
     fetchedRef.current = true;
-                                                     
+
     const controller = new AbortController();
 
     async function fetchData() {
       setLoading(true);
       try {
         const response = await fetch(
-          "https://opentdb.com/api.php?amount=10&type=multiple",
+          "https://opentdb.com/api.php?amount=5&type=multiple",
           {
             signal: controller.signal,
           }

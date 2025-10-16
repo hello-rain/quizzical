@@ -467,7 +467,7 @@ function App() {
               setLoading(true);
               _context.p = 1;
               _context.n = 2;
-              return fetch("https://opentdb.com/api.php?amount=10&type=multiple", {
+              return fetch("https://opentdb.com/api.php?amount=5&type=multiple", {
                 signal: controller.signal
               });
             case 2:
