@@ -10,7 +10,7 @@
   --font-ui: "Karla", sans-serif;
 
   --fs-title: 3rem;
-  --fs-desc: 1.5rem;
+  --fs-subtitle: 1.5rem;
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-bold: 700;
@@ -135,13 +135,19 @@ main {
 .quiz-start__description {
   margin-bottom: 1.5em;
 
-  font-size: var(--fs-desc);
+  font-size: var(--fs-subtitle);
 }
 
 .quiz-loading {
   font-family: var(--font-ui);
   font-weight: var(--fw-bold);
-  font-size: var(--fs-desc);
+  font-size: var(--fs-subtitle);
+}
+
+.quiz-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .btn {
@@ -174,10 +180,10 @@ main {
 }
 
 /* Small responsive adjustments */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   :root {
     --fs-title: 2.2rem;
-    --fs-desc: 1.125rem;
+    --fs-subtitle: 1rem;
     --max-width: 95%;
   }
 }
