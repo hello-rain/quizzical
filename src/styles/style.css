@@ -1,11 +1,21 @@
 /* Design tokens */
 :root {
+  /* Color scales */
   --clr-neutral-100: hsl(220, 43%, 97%);
   --clr-neutral-300: hsl(231, 41%, 90%);
   --clr-neutral-400: hsl(230, 61%, 90%);
   --clr-neutral-700: hsl(230, 34%, 46%);
   --clr-neutral-800: hsl(231, 42%, 28%);
 
+  /* Spacing scales (root-relative) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+
+  /* Color aliases */
   --clr-text: var(--clr-neutral-800);
   --clr-bg: var(--clr-neutral-100);
   --clr-btn: var(--clr-neutral-700);
@@ -15,6 +25,12 @@
   --clr-choice-correct: hsl(133, 46%, 71%);
   --clr-choice-incorrect: hsl(0, 81%, 85%);
 
+  /* Spacing aliases */
+  --space-small: var(--space-2);
+  --space-medium: var(--space-4);
+  --space-large: var(--space-5);
+
+  /* Typography */
   --ff-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial;
   --ff-ui: "Karla", sans-serif;
@@ -22,15 +38,15 @@
   --fs-title: 3rem;
   --fs-subtitle: 1.5rem;
   --fs-choice: 1rem;
-  --fs-btn: 1rem;
+  --fs-btn: 1.2rem;
 
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-bold: 700;
 
+  /* Layout tokens */
   --max-width: 550px;
   --radius: 15px;
-  --btn-padding: 1.2rem;
 }
 
 /* Reset */
@@ -152,11 +168,11 @@ main {
 }
 
 .btn {
-  padding: var(--btn-padding);
+  padding: var(--space-medium);
 
   color: var(--clr-bg);
   font-weight: var(--fw-medium);
-  font-size: 1.2rem;
+  font-size: var(--fs-btn);
 
   background-color: var(--clr-btn);
   border: none;
@@ -182,13 +198,13 @@ main {
 .quiz-questions {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: var(--space-medium);
 
-  padding: 1em;
+  padding: var(--space-medium);
 }
 
 .quiz-questions__item {
-  padding: 1.5em;
+  padding: var(--space-large);
   border: none;
   border-bottom: 1px solid var(--clr-border);
 }
@@ -201,7 +217,7 @@ main {
 .quiz-questions__choices {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5em 1em;
+  gap: var(--space-large) var(--space-medium);
 }
 
 .quiz-questions__choice input[type="radio"] {
@@ -210,12 +226,12 @@ main {
 
   width: 0;
   height: 0;
-  
+
   pointer-events: none;
 }
 
 .quiz-questions__choice-btn {
-  padding: 0.5em 1.5em;
+  padding: var(--space-small) var(--space-large);
   border: 1px solid var(--clr-choice-border);
   border-radius: 8px;
 
