@@ -642,7 +642,7 @@ function QuizQuestion(_ref2) {
               return onAnswer && onAnswer(questionIndex, choice);
             } // save answer
           }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsx"])("span", {
-            className: "quiz-questions__choiceBtn",
+            className: "quiz-questions__choice-btn",
             children: decodeHtml(choice)
           })]
         }, id);

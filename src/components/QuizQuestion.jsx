@@ -50,7 +50,7 @@ function QuizQuestion({ question, questionIndex, selected, onAnswer }) {
                 checked={selected === choice} // true => this radio is selected
                 onChange={() => onAnswer && onAnswer(questionIndex, choice)} // save answer
               />
-              <span className="quiz-questions__choiceBtn">
+              <span className="quiz-questions__choice-btn">
                 {decodeHtml(choice)}
               </span>
             </label>
