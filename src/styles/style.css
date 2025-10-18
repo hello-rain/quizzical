@@ -1,9 +1,19 @@
 /* Design tokens */
 :root {
-  --clr-text: #293264;
-  --clr-bg: #f5f7fb;
-  --clr-btn: #4d5b9e;
-  --clr-border: #dbdef0;
+  --clr-neutral-100: hsl(220, 43%, 97%);
+  --clr-neutral-300: hsl(231, 41%, 90%);
+  --clr-neutral-400: hsl(230, 61%, 90%);
+  --clr-neutral-700: hsl(230, 34%, 46%);
+  --clr-neutral-800: hsl(231, 42%, 28%);
+
+  --clr-text: var(--clr-neutral-800);
+  --clr-bg: var(--clr-neutral-100);
+  --clr-btn: var(--clr-neutral-700);
+  --clr-border: var(--clr-neutral-300);
+  --clr-choice-border: var(--clr-neutral-700);
+  --clr-choice-selected: var(--clr-neutral-400);
+  --clr-choice-correct: hsl(133, 46%, 71%);
+  --clr-choice-incorrect: hsl(0, 81%, 85%);
 
   --ff-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial;
