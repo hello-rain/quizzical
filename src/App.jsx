@@ -10,7 +10,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [answers, setAnswers] = useState({}); // { [questionIndex]: choiceValue }
   const [isSubmited, setSubmitted] = useState(false);
-  const [results, setResults] = useState(null);
+  const [score, setScore] = useState(null);
   const [isNewQuiz, setNewQuiz] = useState(false);
 
   // App refs

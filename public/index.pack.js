@@ -452,8 +452,8 @@ function App() {
     setSubmitted = _useState10[1];
   var _useState11 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(null),
     _useState12 = _slicedToArray(_useState11, 2),
-    results = _useState12[0],
-    setResults = _useState12[1];
+    score = _useState12[0],
+    setScore = _useState12[1];
   var _useState13 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
     _useState14 = _slicedToArray(_useState13, 2),
     isNewQuiz = _useState14[0],
