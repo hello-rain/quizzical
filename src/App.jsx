@@ -3,11 +3,15 @@ import QuizStart from "./components/QuizStart";
 import QuizQuestions from "./components/QuizQuestions";
 
 export default function App() {
-  // App state
+  // App states
   const [isStarted, setIsStarted] = useState(false);
   const [questions, setQuestions] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [answers, setAnswers] = useState(null);
+  const [isSubmited, setSubmitted] = useState(false);
+  const [results, setResults] = useState(null);
+  const [isNewQuiz, setNewQuiz] = useState(false);
 
   // App refs
   const fetchedRef = useRef(false);

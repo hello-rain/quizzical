@@ -425,7 +425,7 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 function App() {
-  // App state
+  // App states
   var _useState = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
     _useState2 = _slicedToArray(_useState, 2),
     isStarted = _useState2[0],
@@ -442,6 +442,22 @@ function App() {
     _useState8 = _slicedToArray(_useState7, 2),
     error = _useState8[0],
     setError = _useState8[1];
+  var _useState9 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(null),
+    _useState0 = _slicedToArray(_useState9, 2),
+    answers = _useState0[0],
+    setAnswers = _useState0[1];
+  var _useState1 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
+    _useState10 = _slicedToArray(_useState1, 2),
+    isSubmited = _useState10[0],
+    setSubmitted = _useState10[1];
+  var _useState11 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(null),
+    _useState12 = _slicedToArray(_useState11, 2),
+    results = _useState12[0],
+    setResults = _useState12[1];
+  var _useState13 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
+    _useState14 = _slicedToArray(_useState13, 2),
+    isNewQuiz = _useState14[0],
+    setNewQuiz = _useState14[1];
 
   // App refs
   var fetchedRef = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useRef"])(false);
