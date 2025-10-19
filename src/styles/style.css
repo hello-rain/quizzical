@@ -243,26 +243,26 @@ main {
   user-select: none;
 }
 
-.quiz-questions__choice--selected,
-.quiz-questions__choice--correct,
-.quiz-questions__choice--incorrect {
+.quiz-questions__choice-btn--selected,
+.quiz-questions__choice-btn--correct,
+.quiz-questions__choice-btn--incorrect {
   border: none;
 }
 
-.quiz-questions__choice--selected {
+.quiz-questions__choice-btn--selected {
   background-color: var(--clr-choice-selected);
 }
 
-.quiz-questions__choice--correct {
+.quiz-questions__choice-btn--correct {
   background-color: var(--clr-choice-correct);
 }
 
 .quiz-questions__choice--unselected,
-.quiz-questions__choice--incorrect {
+.quiz-questions__choice-btn--incorrect {
   opacity: 0.5;
 }
 
-.quiz-questions__choice--incorrect {
+.quiz-questions__choice-btn--incorrect {
   background-color: var(--clr-choice-incorrect);
 }
 
