@@ -30,5 +30,10 @@ export default function QuizQuestions({ questions }) {
     );
   });
 
-  return <div className="quiz-questions">{questionElements}</div>;
+  return (
+    <section className="quiz-questions">
+      {questionElements}
+      <button className="btn">Check answers</button>
+    </section>
+  );
 }

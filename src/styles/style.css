@@ -266,6 +266,10 @@ main {
   background-color: var(--clr-choice-incorrect);
 }
 
+.quiz-questions .btn {
+  padding: var(--space-medium) var(--space-large);
+  margin: var(--space-medium) auto;
+}
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .btn {

@@ -717,9 +717,12 @@ function QuizQuestions(_ref) {
       onAnswer: handleAnswer
     }, questionIndex);
   });
-  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("div", {
+  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsxs"])("section", {
     className: "quiz-questions",
-    children: questionElements
+    children: [questionElements, /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("button", {
+      className: "btn",
+      children: "Check answers"
+    })]
   });
 }
 
