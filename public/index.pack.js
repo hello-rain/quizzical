@@ -430,7 +430,7 @@ function App() {
     _useState2 = _slicedToArray(_useState, 2),
     isStarted = _useState2[0],
     setIsStarted = _useState2[1];
-  var _useState3 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(null),
+  var _useState3 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])([]),
     _useState4 = _slicedToArray(_useState3, 2),
     questions = _useState4[0],
     setQuestions = _useState4[1];
@@ -442,10 +442,10 @@ function App() {
     _useState8 = _slicedToArray(_useState7, 2),
     error = _useState8[0],
     setError = _useState8[1];
-  var _useState9 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(null),
+  var _useState9 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])({}),
     _useState0 = _slicedToArray(_useState9, 2),
     answers = _useState0[0],
-    setAnswers = _useState0[1];
+    setAnswers = _useState0[1]; // { [questionIndex]: choiceValue }
   var _useState1 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
     _useState10 = _slicedToArray(_useState1, 2),
     isSubmited = _useState10[0],
