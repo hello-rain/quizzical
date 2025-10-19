@@ -1,6 +1,7 @@
 // QuizQuestion - render one question with shuffled choices
 
 import { useMemo } from "react";
+import clsx from "clsx";
 
 // Fisher-Yates shuffle - non-mutating: returns a new shuffled array
 function shuffleArray(arr) {
@@ -40,6 +41,17 @@ function QuizQuestion({ question, questionIndex, selected, onAnswer }) {
       <div className="quiz-questions__choices">
         {choices.map((choice, choiceIndex) => {
           const id = `q-${questionIndex}-opt-${choiceIndex}`;
+
+          // Compare decoded text
+          const choiceValue = decodeHtml(choice);
+          const selectedValue = decodeHtml(selected);
+
+          const isSelected = choiceValue === selectedValue;
+
+          const className = clsx("quiz-questions__choice-btn", {
+            "quiz-questions__choice-btn--selected": isSelected,
+          });
+
           return (
             <label key={id} className="quiz-questions__choice" htmlFor={id}>
               <input
@@ -50,9 +62,7 @@ function QuizQuestion({ question, questionIndex, selected, onAnswer }) {
                 checked={selected === choice} // true => this radio is selected
                 onChange={() => onAnswer && onAnswer(questionIndex, choice)} // save answer
               />
-              <span className="quiz-questions__choice-btn">
-                {decodeHtml(choice)}
-              </span>
+              <span className={className}>{decodeHtml(choice)}</span>
             </label>
           );
         })}

@@ -257,7 +257,7 @@ main {
   background-color: var(--clr-choice-correct);
 }
 
-.quiz-questions__choice--unselected,
+.quiz-questions__choice-btn--unselected,
 .quiz-questions__choice-btn--incorrect {
   opacity: 0.5;
 }
@@ -270,6 +270,7 @@ main {
   padding: var(--space-medium) var(--space-large);
   margin: var(--space-medium) auto;
 }
+
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .btn {

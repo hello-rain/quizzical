@@ -610,8 +610,9 @@ if (process.env.NODE_ENV === 'production') {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_clsx__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__);
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -619,6 +620,7 @@ function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Sym
 function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 // QuizQuestion - render one question with shuffled choices
+
 
 
 
@@ -654,19 +656,27 @@ function QuizQuestion(_ref2) {
     var allChoices = [question.correct_answer].concat(_toConsumableArray(question.incorrect_answers || []));
     return shuffleArray(allChoices);
   }, [question.question]);
-  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsxs"])("fieldset", {
+  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsxs"])("fieldset", {
     className: "quiz-questions__item",
-    children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsx"])("legend", {
+    children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("legend", {
       className: "quiz-questions__title",
       children: decodeHtml(question.question)
-    }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsx"])("div", {
+    }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("div", {
       className: "quiz-questions__choices",
       children: choices.map(function (choice, choiceIndex) {
         var id = "q-".concat(questionIndex, "-opt-").concat(choiceIndex);
-        return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsxs"])("label", {
+
+        // Compare decoded text
+        var choiceValue = decodeHtml(choice);
+        var selectedValue = decodeHtml(selected);
+        var isSelected = choiceValue === selectedValue;
+        var className = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_clsx__["a" /* default */])("quiz-questions__choice-btn", {
+          "quiz-questions__choice-btn--selected": isSelected
+        });
+        return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsxs"])("label", {
           className: "quiz-questions__choice",
           htmlFor: id,
-          children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsx"])("input", {
+          children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("input", {
             id: id,
             type: "radio",
             name: "q-".concat(questionIndex),
@@ -676,8 +686,8 @@ function QuizQuestion(_ref2) {
             onChange: function onChange() {
               return onAnswer && onAnswer(questionIndex, choice);
             } // save answer
-          }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsx"])("span", {
-            className: "quiz-questions__choice-btn",
+          }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("span", {
+            className: className,
             children: decodeHtml(choice)
           })]
         }, id);
@@ -793,7 +803,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_2__App_jsx__["a" /* default */], {}), document.getElementById("root"));
 
 /***/ }),
-/* 11 */,
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export clsx */
+function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f)}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}/* harmony default export */ __webpack_exports__["a"] = (clsx);
+
+/***/ }),
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 

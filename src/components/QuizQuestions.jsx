@@ -33,6 +33,6 @@ export default function QuizQuestions({
     <section className="quiz-questions">
       {questionElements}
       <button className="btn">Check answers</button>
-    </section>
+    </section>  
   );
 }
