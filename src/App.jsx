@@ -20,6 +20,14 @@ export default function App() {
     setIsStarted(true);
   }
 
+  function handleAnswer(questionIndex, answer) {
+    setAnswers((prevAnswers) => ({ ...prevAnswers, [questionIndex]: answer }));
+  }
+
+  function handleCheckAnswers() {
+    return;
+  }
+
   // Fetch questions when quiz starts
   useEffect(() => {
     // Run the fetch once when the quiz starts (prevents duplicate requests in dev/StrictMode)
@@ -64,7 +72,14 @@ export default function App() {
         ) : error ? (
           <p>Error: {error}</p>
         ) : (
-          <QuizQuestions questions={questions} />
+          <QuizQuestions
+            questions={questions}
+            answers={answers}
+            onAnswer={handleAnswer}
+            isSubmited={isSubmited}
+            onCheckAnswers={handleCheckAnswers}
+            score={score}
+          />
         )
       ) : (
         <QuizStart onStart={startQuiz} disabled={loading} />
