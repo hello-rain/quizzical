@@ -56,10 +56,3 @@ function QuizQuestion({ question, questionIndex, selected, onAnswer }) {
 }
 
 export default QuizQuestion;
-
-// category: "General Knowledge";
-// correct_answer: "Swiss Air";
-// difficulty: "easy";
-// incorrect_answers: (3)[("Air France", "British Airways", "TWA")];
-// question: "What airline was the owner of the plane that crashed off the coast of Nova Scotia in 1998?";
-// type: "multiple";

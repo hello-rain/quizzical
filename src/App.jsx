@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import QuizStart from "./components/QuizStart";
 import QuizQuestions from "./components/QuizQuestions";
+import decodeHtml from "./utils/html";
+import normalize from "./utils/normalize";
 
 export default function App() {
   // App states
@@ -9,8 +11,8 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [answers, setAnswers] = useState({}); // { [questionIndex]: choiceValue }
-  const [isSubmited, setSubmitted] = useState(false);
-  const [results, setResults] = useState({});
+  const [isSubmitted, setSubmitted] = useState(false);
+  const [results, setResults] = useState([]);
   const [isNewQuiz, setNewQuiz] = useState(false);
 
   // App refs
@@ -25,8 +27,35 @@ export default function App() {
     setAnswers((prevAnswers) => ({ ...prevAnswers, [questionIndex]: answer }));
   }
 
+  function computeResults() {
+    const perQuestion = questions.map((question, questionIndex) => {
+      const correctRaw = question?.correct_answer ?? "";
+      const selectedRaw = answers[questionIndex] ?? "";
+
+      // Convert answers to a consistent format
+      const correctNormalized = normalize(decodeHtml(correctRaw));
+      const selectedNormalized = normalize(decodeHtml(selectedRaw));
+
+      const isCorrect = correctNormalized === selectedNormalized;
+
+      return {
+        index: questionIndex,
+        isCorrect,
+        correctAnswer: decodeHtml(correctRaw),
+        selectedAnswer: decodeHtml(selectedRaw),
+      };
+    });
+
+    // Count correct answers
+    const score = perQuestion.filter((r) => r.isCorrect).length;
+
+    return { score, perQuestion };
+  }
+
   function handleCheckAnswers() {
-    return;
+    const { score, perQuestion } = computeResults();
+    setResults(perQuestion);
+    setSubmitted(true);
   }
 
   // Fetch questions when quiz starts
@@ -77,7 +106,7 @@ export default function App() {
             questions={questions}
             answers={answers}
             onAnswer={handleAnswer}
-            isSubmited={isSubmited}
+            isSubmited={isSubmitted}
             onCheckAnswers={handleCheckAnswers}
             score={null}
           />

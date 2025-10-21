@@ -408,8 +408,10 @@ if (process.env.NODE_ENV === 'production') {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_QuizStart__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_QuizQuestions__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_html__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_normalize__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_jsx_runtime__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react_jsx_runtime__);
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); } r ? i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n : (o("next", 0), o("throw", 1), o("return", 2)); }, _regeneratorDefine2(e, r, n, t); }
@@ -426,6 +428,8 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
 
 
 
@@ -454,9 +458,9 @@ function App() {
     setAnswers = _useState0[1]; // { [questionIndex]: choiceValue }
   var _useState1 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
     _useState10 = _slicedToArray(_useState1, 2),
-    isSubmited = _useState10[0],
+    isSubmitted = _useState10[0],
     setSubmitted = _useState10[1];
-  var _useState11 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])({}),
+  var _useState11 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])([]),
     _useState12 = _slicedToArray(_useState11, 2),
     results = _useState12[0],
     setResults = _useState12[1];
@@ -477,8 +481,39 @@ function App() {
       return _objectSpread(_objectSpread({}, prevAnswers), {}, _defineProperty({}, questionIndex, answer));
     });
   }
+  function computeResults() {
+    var perQuestion = questions.map(function (question, questionIndex) {
+      var _question$correct_ans, _answers$questionInde;
+      var correctRaw = (_question$correct_ans = question === null || question === void 0 ? void 0 : question.correct_answer) !== null && _question$correct_ans !== void 0 ? _question$correct_ans : "";
+      var selectedRaw = (_answers$questionInde = answers[questionIndex]) !== null && _answers$questionInde !== void 0 ? _answers$questionInde : "";
+
+      // Convert answers to a consistent format
+      var correctNormalized = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__utils_normalize__["a" /* default */])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_html__["a" /* default */])(correctRaw));
+      var selectedNormalized = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__utils_normalize__["a" /* default */])(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_html__["a" /* default */])(selectedRaw));
+      var isCorrect = correctNormalized === selectedNormalized;
+      return {
+        index: questionIndex,
+        isCorrect: isCorrect,
+        correctAnswer: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_html__["a" /* default */])(correctRaw),
+        selectedAnswer: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_html__["a" /* default */])(selectedRaw)
+      };
+    });
+
+    // Count correct answers
+    var score = perQuestion.filter(function (r) {
+      return r.isCorrect;
+    }).length;
+    return {
+      score: score,
+      perQuestion: perQuestion
+    };
+  }
   function handleCheckAnswers() {
-    return;
+    var _computeResults = computeResults(),
+      score = _computeResults.score,
+      perQuestion = _computeResults.perQuestion;
+    setResults(perQuestion);
+    setSubmitted(true);
   }
 
   // Fetch questions when quiz starts
@@ -539,20 +574,20 @@ function App() {
   }, [isStarted]);
 
   // Render start screen. After starting, show loading, error, or questions.
-  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__["jsx"])("main", {
-    children: isStarted ? loading ? /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__["jsx"])("p", {
+  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_react_jsx_runtime__["jsx"])("main", {
+    children: isStarted ? loading ? /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_react_jsx_runtime__["jsx"])("p", {
       className: "quiz-loading",
       children: "Loading questions\u2026"
-    }) : error ? /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__["jsxs"])("p", {
+    }) : error ? /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_react_jsx_runtime__["jsxs"])("p", {
       children: ["Error: ", error]
-    }) : /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_2__components_QuizQuestions__["a" /* default */], {
+    }) : /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_2__components_QuizQuestions__["a" /* default */], {
       questions: questions,
       answers: answers,
       onAnswer: handleAnswer,
-      isSubmited: isSubmited,
+      isSubmited: isSubmitted,
       onCheckAnswers: handleCheckAnswers,
       score: null
-    }) : /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_1__components_QuizStart__["a" /* default */], {
+    }) : /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_1__components_QuizStart__["a" /* default */], {
       onStart: startQuiz,
       disabled: loading
     })
@@ -682,13 +717,6 @@ function QuizQuestion(_ref) {
   });
 }
 /* harmony default export */ __webpack_exports__["a"] = (QuizQuestion);
-
-// category: "General Knowledge";
-// correct_answer: "Swiss Air";
-// difficulty: "easy";
-// incorrect_answers: (3)[("Air France", "British Airways", "TWA")];
-// question: "What airline was the owner of the plane that crashed off the coast of Nova Scotia in 1998?";
-// type: "multiple";
 
 /***/ }),
 /* 8 */
@@ -32085,6 +32113,19 @@ function shuffleArray(arr) {
     newArr[j] = _ref[1];
   }
   return newArr;
+}
+
+/***/ }),
+/* 25 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = normalize;
+// Convert a string to a consistent form
+
+function normalize() {
+  var str = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+  return String(str).trim().toLowerCase();
 }
 
 /***/ })
