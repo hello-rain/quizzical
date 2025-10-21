@@ -32,7 +32,9 @@ export default function QuizQuestions({
   return (
     <section className="quiz-questions">
       {questionElements}
-      <button className="btn">Check answers</button>
-    </section>  
+      <button className="btn" onClick={onCheckAnswers}>
+        Check answers
+      </button>
+    </section>
   );
 }
