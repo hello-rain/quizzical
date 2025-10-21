@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import QuizStart from "./components/QuizStart";
 import QuizQuestions from "./components/QuizQuestions";
 import decodeHtml from "./utils/html";
@@ -46,14 +46,16 @@ export default function App() {
       };
     });
 
-    // Count correct answers
-    const score = perQuestion.filter((r) => r.isCorrect).length;
-
-    return { score, perQuestion };
+    return perQuestion;
   }
 
+  // Compute score when results are available
+  const score = useMemo(() => {
+    return results?.filter((r) => r.isCorrect).length ?? 0;
+  }, [results]);
+
   function handleCheckAnswers() {
-    const { score, perQuestion } = computeResults();
+    const perQuestion = computeResults();
     setResults(perQuestion);
     setSubmitted(true);
   }

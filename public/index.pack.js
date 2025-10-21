@@ -498,20 +498,18 @@ function App() {
         selectedAnswer: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_html__["a" /* default */])(selectedRaw)
       };
     });
-
-    // Count correct answers
-    var score = perQuestion.filter(function (r) {
-      return r.isCorrect;
-    }).length;
-    return {
-      score: score,
-      perQuestion: perQuestion
-    };
+    return perQuestion;
   }
+
+  // Compute score when results are available
+  var score = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useMemo"])(function () {
+    var _results$filter$lengt;
+    return (_results$filter$lengt = results === null || results === void 0 ? void 0 : results.filter(function (r) {
+      return r.isCorrect;
+    }).length) !== null && _results$filter$lengt !== void 0 ? _results$filter$lengt : 0;
+  }, [results]);
   function handleCheckAnswers() {
-    var _computeResults = computeResults(),
-      score = _computeResults.score,
-      perQuestion = _computeResults.perQuestion;
+    var perQuestion = computeResults();
     setResults(perQuestion);
     setSubmitted(true);
   }
@@ -741,7 +739,8 @@ function QuizQuestions(_ref) {
     onAnswer = _ref.onAnswer,
     isSubmitted = _ref.isSubmitted,
     onCheckAnswers = _ref.onCheckAnswers,
-    score = _ref.score;
+    score = _ref.score,
+    results = _ref.results;
   // Ensure questions is an array
   var questionsArr = Array.isArray(questions) ? questions : [];
   if (questionsArr.length === 0) return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("h2", {
@@ -750,11 +749,13 @@ function QuizQuestions(_ref) {
 
   // render each QuizQuestion, pass selected value and onAnswer handler
   var questionElements = questionsArr.map(function (question, questionIndex) {
+    // const questionResult = results?.questionIndex;
     return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_1__QuizQuestion__["a" /* default */], {
       question: question,
       questionIndex: questionIndex,
       selected: answers[questionIndex],
       onAnswer: onAnswer
+      // result={questionResult}
     }, questionIndex);
   });
   return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsxs"])("section", {

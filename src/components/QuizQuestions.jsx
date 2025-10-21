@@ -10,6 +10,7 @@ export default function QuizQuestions({
   isSubmitted,
   onCheckAnswers,
   score,
+  results,
 }) {
   // Ensure questions is an array
   const questionsArr = Array.isArray(questions) ? questions : [];
@@ -18,6 +19,7 @@ export default function QuizQuestions({
 
   // render each QuizQuestion, pass selected value and onAnswer handler
   const questionElements = questionsArr.map((question, questionIndex) => {
+    // const questionResult = results?.questionIndex;
     return (
       <QuizQuestion
         key={questionIndex}
@@ -25,6 +27,7 @@ export default function QuizQuestions({
         questionIndex={questionIndex}
         selected={answers[questionIndex]}
         onAnswer={onAnswer}
+        // result={questionResult}
       />
     );
   });
