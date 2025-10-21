@@ -10,7 +10,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [answers, setAnswers] = useState({}); // { [questionIndex]: choiceValue }
   const [isSubmited, setSubmitted] = useState(false);
-  const [score, setScore] = useState(null);
+  const [results, setResults] = useState({});
   const [isNewQuiz, setNewQuiz] = useState(false);
 
   // App refs
@@ -20,6 +20,7 @@ export default function App() {
     setIsStarted(true);
   }
 
+  // Track answers
   function handleAnswer(questionIndex, answer) {
     setAnswers((prevAnswers) => ({ ...prevAnswers, [questionIndex]: answer }));
   }
@@ -78,7 +79,7 @@ export default function App() {
             onAnswer={handleAnswer}
             isSubmited={isSubmited}
             onCheckAnswers={handleCheckAnswers}
-            score={score}
+            score={null}
           />
         )
       ) : (

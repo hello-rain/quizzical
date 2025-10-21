@@ -456,10 +456,10 @@ function App() {
     _useState10 = _slicedToArray(_useState1, 2),
     isSubmited = _useState10[0],
     setSubmitted = _useState10[1];
-  var _useState11 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(null),
+  var _useState11 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])({}),
     _useState12 = _slicedToArray(_useState11, 2),
-    score = _useState12[0],
-    setScore = _useState12[1];
+    results = _useState12[0],
+    setResults = _useState12[1];
   var _useState13 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
     _useState14 = _slicedToArray(_useState13, 2),
     isNewQuiz = _useState14[0],
@@ -470,6 +470,8 @@ function App() {
   function startQuiz() {
     setIsStarted(true);
   }
+
+  // Track answers
   function handleAnswer(questionIndex, answer) {
     setAnswers(function (prevAnswers) {
       return _objectSpread(_objectSpread({}, prevAnswers), {}, _defineProperty({}, questionIndex, answer));
@@ -549,7 +551,7 @@ function App() {
       onAnswer: handleAnswer,
       isSubmited: isSubmited,
       onCheckAnswers: handleCheckAnswers,
-      score: score
+      score: null
     }) : /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_1__components_QuizStart__["a" /* default */], {
       onStart: startQuiz,
       disabled: loading
@@ -611,8 +613,10 @@ if (process.env.NODE_ENV === 'production') {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_clsx__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_html__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_shuffleArray__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_jsx_runtime__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_react_jsx_runtime__);
 function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -624,59 +628,41 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
 
 
 
-// Fisher-Yates shuffle - non-mutating: returns a new shuffled array
 
-function shuffleArray(arr) {
-  var newArr = arr.slice();
-  for (var i = newArr.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var _ref = [newArr[j], newArr[i]];
-    newArr[i] = _ref[0];
-    newArr[j] = _ref[1];
-  }
-  return newArr;
-}
 
-// Decode HTML entities returned by the API into plain text
-function decodeHtml(html) {
-  if (typeof document === "undefined") return html;
-  var text = document.createElement("textarea");
-  text.innerHTML = html;
-  return text.value;
-}
-function QuizQuestion(_ref2) {
-  var question = _ref2.question,
-    questionIndex = _ref2.questionIndex,
-    selected = _ref2.selected,
-    onAnswer = _ref2.onAnswer;
+function QuizQuestion(_ref) {
+  var question = _ref.question,
+    questionIndex = _ref.questionIndex,
+    selected = _ref.selected,
+    onAnswer = _ref.onAnswer;
   if (!question) return null;
 
   // Shuffle choices once. Re-run when the question changes.
   var choices = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useMemo"])(function () {
     var allChoices = [question.correct_answer].concat(_toConsumableArray(question.incorrect_answers || []));
-    return shuffleArray(allChoices);
+    return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_shuffleArray__["a" /* default */])(allChoices);
   }, [question.question]);
-  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsxs"])("fieldset", {
+  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_react_jsx_runtime__["jsxs"])("fieldset", {
     className: "quiz-questions__item",
-    children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("legend", {
+    children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_react_jsx_runtime__["jsx"])("legend", {
       className: "quiz-questions__title",
-      children: decodeHtml(question.question)
-    }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("div", {
+      children: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__utils_html__["a" /* default */])(question.question)
+    }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_react_jsx_runtime__["jsx"])("div", {
       className: "quiz-questions__choices",
       children: choices.map(function (choice, choiceIndex) {
         var id = "q-".concat(questionIndex, "-opt-").concat(choiceIndex);
 
         // Compare decoded text
-        var choiceValue = decodeHtml(choice);
-        var selectedValue = decodeHtml(selected);
+        var choiceValue = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__utils_html__["a" /* default */])(choice);
+        var selectedValue = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__utils_html__["a" /* default */])(selected);
         var isSelected = choiceValue === selectedValue;
         var className = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_clsx__["a" /* default */])("quiz-questions__choice-btn", {
           "quiz-questions__choice-btn--selected": isSelected
         });
-        return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsxs"])("label", {
+        return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_react_jsx_runtime__["jsxs"])("label", {
           className: "quiz-questions__choice",
           htmlFor: id,
-          children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("input", {
+          children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_react_jsx_runtime__["jsx"])("input", {
             id: id,
             type: "radio",
             name: "q-".concat(questionIndex),
@@ -686,9 +672,9 @@ function QuizQuestion(_ref2) {
             onChange: function onChange() {
               return onAnswer && onAnswer(questionIndex, choice);
             } // save answer
-          }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("span", {
+          }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_react_jsx_runtime__["jsx"])("span", {
             className: className,
-            children: decodeHtml(choice)
+            children: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__utils_html__["a" /* default */])(choice)
           })]
         }, id);
       })
@@ -746,6 +732,7 @@ function QuizQuestions(_ref) {
     className: "quiz-questions",
     children: [questionElements, /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("button", {
       className: "btn",
+      onClick: onCheckAnswers,
       children: "Check answers"
     })]
   });
@@ -32067,6 +32054,38 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 23 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = decodeHtml;
+// Decode HTML entities returned by the API into plain text
+function decodeHtml(html) {
+  if (typeof document === "undefined") return html;
+  var text = document.createElement("textarea");
+  text.innerHTML = html;
+  return text.value;
+}
+
+/***/ }),
+/* 24 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = shuffleArray;
+// Fisher-Yates shuffle - non-mutating: returns a new shuffled array
+function shuffleArray(arr) {
+  var newArr = arr.slice();
+  for (var i = newArr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var _ref = [newArr[j], newArr[i]];
+    newArr[i] = _ref[0];
+    newArr[j] = _ref[1];
+  }
+  return newArr;
+}
 
 /***/ })
 /******/ ]);
