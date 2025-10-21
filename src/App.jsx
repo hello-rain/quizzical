@@ -106,9 +106,10 @@ export default function App() {
             questions={questions}
             answers={answers}
             onAnswer={handleAnswer}
-            isSubmited={isSubmitted}
+            isSubmitted={isSubmitted}
             onCheckAnswers={handleCheckAnswers}
-            score={null}
+            score={score}
+            results={results}
           />
         )
       ) : (

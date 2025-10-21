@@ -584,9 +584,10 @@ function App() {
       questions: questions,
       answers: answers,
       onAnswer: handleAnswer,
-      isSubmited: isSubmitted,
+      isSubmitted: isSubmitted,
       onCheckAnswers: handleCheckAnswers,
-      score: null
+      score: score,
+      results: results
     }) : /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_1__components_QuizStart__["a" /* default */], {
       onStart: startQuiz,
       disabled: loading
