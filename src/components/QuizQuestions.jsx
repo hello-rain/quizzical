@@ -18,7 +18,7 @@ export default function QuizQuestions({
 
   // render each QuizQuestion, pass selected value and onAnswer handler
   const questionElements = questionsArr.map((question, questionIndex) => {
-    const questionResult = results?.questionIndex ?? null;
+    const questionResult = results?.[questionIndex] ?? null;
     return (
       <QuizQuestion
         key={questionIndex}
