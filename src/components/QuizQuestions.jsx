@@ -1,6 +1,5 @@
 // QuizQuestions - renders the quiz question list and stores user answers
 
-import { useState } from "react";
 import QuizQuestion from "./QuizQuestion";
 
 export default function QuizQuestions({
