@@ -700,7 +700,31 @@ function QuizQuestion(_ref) {
     }), /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_react_jsx_runtime__["jsx"])("div", {
       className: "quiz-questions__choices",
       children: choices.map(function (choice, choiceIndex) {
+        var _graded$selectedAnswe;
         var id = "q-".concat(questionIndex, "-opt-").concat(choiceIndex);
+
+        // Decode for display / comparison
+        var choiceValue = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__utils_html__["a" /* default */])(choice); // decoded text for this choice
+        var selectedValue = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__utils_html__["a" /* default */])(selected !== null && selected !== void 0 ? selected : ""); // live selected from props (pre-submit)
+
+        var isSelectedBeforeSubmit = choiceValue === selectedValue;
+
+        // after submit, use the graded result snapshot
+        var graded = questionResult !== null && questionResult !== void 0 ? questionResult : null;
+        var correctChoice = question.correct_answer;
+        var gradedSelected = (_graded$selectedAnswe = graded === null || graded === void 0 ? void 0 : graded.selectedAnswer) !== null && _graded$selectedAnswe !== void 0 ? _graded$selectedAnswe : null; // snapshot after grading
+
+        var isSelectedAfterSubmit = choiceValue === gradedSelected;
+        var isSelected = !isSubmitted && isSelectedBeforeSubmit;
+        var isCorrect = isSubmitted && correctChoice === choiceValue;
+        var isIncorrect = isSubmitted && isSelectedAfterSubmit && correctChoice != choiceValue;
+        var className = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_clsx__["a" /* default */])("quiz-questions__choice-btn", {
+          // Only show the visual 'selected' state before submitting
+          "quiz-questions__choice-btn--selected": isSelected,
+          // After submitting, show the grading feedback
+          "quiz-questions__choice-btn--correct": isCorrect,
+          "quiz-questions__choice-btn--incorrect": isIncorrect
+        });
         return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_react_jsx_runtime__["jsxs"])("label", {
           className: "quiz-questions__choice",
           htmlFor: id,
@@ -711,6 +735,7 @@ function QuizQuestion(_ref) {
             value: choice,
             checked: selected === choice // true => this radio is selected
             ,
+            disabled: isSubmitted,
             onChange: function onChange() {
               return onAnswer && onAnswer(questionIndex, choice);
             } // save answer
@@ -731,13 +756,10 @@ function QuizQuestion(_ref) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = QuizQuestions;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__QuizQuestion__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__QuizQuestion__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__);
 // QuizQuestions - renders the quiz question list and stores user answers
-
 
 
 
@@ -751,15 +773,15 @@ function QuizQuestions(_ref) {
     results = _ref.results;
   // Ensure questions is an array
   var questionsArr = Array.isArray(questions) ? questions : [];
-  if (questionsArr.length === 0) return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("h2", {
+  if (questionsArr.length === 0) return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsx"])("h2", {
     children: "No questions"
   });
 
   // render each QuizQuestion, pass selected value and onAnswer handler
   var questionElements = questionsArr.map(function (question, questionIndex) {
     var _results$questionInde;
-    var questionResult = (_results$questionInde = results === null || results === void 0 ? void 0 : results.questionIndex) !== null && _results$questionInde !== void 0 ? _results$questionInde : null;
-    return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_1__QuizQuestion__["a" /* default */], {
+    var questionResult = (_results$questionInde = results === null || results === void 0 ? void 0 : results[questionIndex]) !== null && _results$questionInde !== void 0 ? _results$questionInde : null;
+    return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsx"])(__WEBPACK_IMPORTED_MODULE_0__QuizQuestion__["a" /* default */], {
       question: question,
       questionIndex: questionIndex,
       selected: answers[questionIndex],
@@ -768,9 +790,9 @@ function QuizQuestions(_ref) {
       questionResult: questionResult
     }, questionIndex);
   });
-  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsxs"])("section", {
+  return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsxs"])("section", {
     className: "quiz-questions",
-    children: [questionElements, /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_react_jsx_runtime__["jsx"])("button", {
+    children: [questionElements, /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_jsx_runtime__["jsx"])("button", {
       className: "btn",
       onClick: onCheckAnswers,
       children: "Check answers"
@@ -866,7 +888,7 @@ function shuffleArray(arr) {
 
 "use strict";
 /* unused harmony export clsx */
-function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f)}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}/* unused harmony default export */ var _unused_webpack_default_export = (clsx);
+function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else if("object"==typeof e)if(Array.isArray(e)){var o=e.length;for(t=0;t<o;t++)e[t]&&(f=r(e[t]))&&(n&&(n+=" "),n+=f)}else for(f in e)e[f]&&(n&&(n+=" "),n+=f);return n}function clsx(){for(var e,t,f=0,n="",o=arguments.length;f<o;f++)(e=arguments[f])&&(t=r(e))&&(n&&(n+=" "),n+=t);return n}/* harmony default export */ __webpack_exports__["a"] = (clsx);
 
 /***/ }),
 /* 15 */
