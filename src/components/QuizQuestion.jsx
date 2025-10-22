@@ -5,7 +5,14 @@ import clsx from "clsx";
 import decodeHtml from "../utils/html";
 import shuffleArray from "../utils/shuffleArray";
 
-function QuizQuestion({ question, questionIndex, selected, onAnswer }) {
+function QuizQuestion({
+  question,
+  questionIndex,
+  selected,
+  onAnswer,
+  isSubmitted,
+  questionResult,
+}) {
   if (!question) return null;
 
   // Shuffle choices once. Re-run when the question changes.
@@ -25,16 +32,6 @@ function QuizQuestion({ question, questionIndex, selected, onAnswer }) {
       <div className="quiz-questions__choices">
         {choices.map((choice, choiceIndex) => {
           const id = `q-${questionIndex}-opt-${choiceIndex}`;
-
-          // Compare decoded text
-          const choiceValue = decodeHtml(choice);
-          const selectedValue = decodeHtml(selected);
-
-          const isSelected = choiceValue === selectedValue;
-
-          const className = clsx("quiz-questions__choice-btn", {
-            "quiz-questions__choice-btn--selected": isSelected,
-          });
 
           return (
             <label key={id} className="quiz-questions__choice" htmlFor={id}>
