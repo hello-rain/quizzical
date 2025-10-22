@@ -691,7 +691,7 @@ function QuizQuestion(_ref) {
   var choices = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useMemo"])(function () {
     var allChoices = [question.correct_answer].concat(_toConsumableArray(question.incorrect_answers || []));
     return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__utils_shuffleArray__["a" /* default */])(allChoices);
-  }, [question.question]);
+  }, [question]);
   return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_react_jsx_runtime__["jsxs"])("fieldset", {
     className: "quiz-questions__item",
     children: [/*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_react_jsx_runtime__["jsx"])("legend", {

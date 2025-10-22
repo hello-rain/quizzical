@@ -22,7 +22,7 @@ function QuizQuestion({
       ...(question.incorrect_answers || []),
     ];
     return shuffleArray(allChoices);
-  }, [question.question]);
+  }, [question]);
 
   return (
     <fieldset className="quiz-questions__item">
