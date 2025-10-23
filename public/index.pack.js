@@ -454,34 +454,34 @@ function App() {
     _useState2 = _slicedToArray(_useState, 2),
     isStarted = _useState2[0],
     setIsStarted = _useState2[1];
-  var _useState3 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])([]),
+  var _useState3 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(0),
     _useState4 = _slicedToArray(_useState3, 2),
-    questions = _useState4[0],
-    setQuestions = _useState4[1];
-  var _useState5 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
+    quizKey = _useState4[0],
+    setQuizKey = _useState4[1];
+  var _useState5 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])([]),
     _useState6 = _slicedToArray(_useState5, 2),
-    loading = _useState6[0],
-    setLoading = _useState6[1];
-  var _useState7 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(null),
+    questions = _useState6[0],
+    setQuestions = _useState6[1];
+  var _useState7 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
     _useState8 = _slicedToArray(_useState7, 2),
-    error = _useState8[0],
-    setError = _useState8[1];
-  var _useState9 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])({}),
+    loading = _useState8[0],
+    setLoading = _useState8[1];
+  var _useState9 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(null),
     _useState0 = _slicedToArray(_useState9, 2),
-    answers = _useState0[0],
-    setAnswers = _useState0[1]; // { [questionIndex]: choiceValue }
-  var _useState1 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
+    error = _useState0[0],
+    setError = _useState0[1];
+  var _useState1 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])({}),
     _useState10 = _slicedToArray(_useState1, 2),
-    isSubmitted = _useState10[0],
-    setSubmitted = _useState10[1];
-  var _useState11 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])([]),
+    answers = _useState10[0],
+    setAnswers = _useState10[1]; // { [questionIndex]: choiceValue }
+  var _useState11 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
     _useState12 = _slicedToArray(_useState11, 2),
-    results = _useState12[0],
-    setResults = _useState12[1];
-  var _useState13 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
+    isSubmitted = _useState12[0],
+    setSubmitted = _useState12[1];
+  var _useState13 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])([]),
     _useState14 = _slicedToArray(_useState13, 2),
-    isNewQuiz = _useState14[0],
-    setNewQuiz = _useState14[1];
+    results = _useState14[0],
+    setResults = _useState14[1];
 
   // App refs
   var fetchedRef = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useRef"])(false);
@@ -532,7 +532,14 @@ function App() {
 
   // Start a new quiz
   function handleNewQuiz() {
-    setNewQuiz(true);
+    setAnswers({});
+    setResults([]);
+    setSubmitted(false);
+    setQuestions([]);
+    fetchedRef.current = false;
+    setQuizKey(function (k) {
+      return k + 1;
+    });
   }
 
   // Fetch questions when quiz starts
@@ -590,7 +597,7 @@ function App() {
     return function () {
       return controller.abort();
     };
-  }, [isStarted]);
+  }, [isStarted, quizKey]);
 
   // Render start screen. After starting, show loading, error, or questions.
   return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_react_jsx_runtime__["jsx"])("main", {

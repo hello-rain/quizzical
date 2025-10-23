@@ -7,13 +7,13 @@ import normalize from "./utils/normalize";
 export default function App() {
   // App states
   const [isStarted, setIsStarted] = useState(false);
+  const [quizKey, setQuizKey] = useState(0);
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [answers, setAnswers] = useState({}); // { [questionIndex]: choiceValue }
   const [isSubmitted, setSubmitted] = useState(false);
   const [results, setResults] = useState([]);
-  const [isNewQuiz, setNewQuiz] = useState(false);
 
   // App refs
   const fetchedRef = useRef(false);
@@ -63,7 +63,12 @@ export default function App() {
 
   // Start a new quiz
   function handleNewQuiz() {
-    setNewQuiz(true);
+    setAnswers({});
+    setResults([]);
+    setSubmitted(false);
+    setQuestions([]);
+    fetchedRef.current = false;
+    setQuizKey((k) => k + 1);
   }
 
   // Fetch questions when quiz starts
@@ -99,7 +104,7 @@ export default function App() {
 
     fetchData();
     return () => controller.abort();
-  }, [isStarted]);
+  }, [isStarted, quizKey]);
 
   // Render start screen. After starting, show loading, error, or questions.
   return (
