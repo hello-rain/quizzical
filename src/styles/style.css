@@ -271,6 +271,33 @@ main {
   margin: var(--space-medium) auto;
 }
 
+/* Utilities */
+
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0); /* legacy */
+  clip-path: inset(50%); /* modern */
+  border: 0;
+  white-space: nowrap; /* prevent long text wrap */
+}
+
+.sr-only--focusable:active,
+.sr-only--focusable:focus {
+  position: static !important;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  white-space: normal;
+}
+
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .btn {
