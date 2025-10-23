@@ -37,6 +37,7 @@
 
   --fs-title: 3rem;
   --fs-subtitle: 1.5rem;
+  --fs-score: 1.3rem;
   --fs-choice: 1rem;
   --fs-btn: 1.2rem;
 
@@ -271,6 +272,21 @@ main {
   margin: var(--space-medium) auto;
 }
 
+.quiz-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-large);
+}
+
+.quiz-results__score {
+  font-size: var(--fs-score);
+  font-weight: var(--fw-bold);
+}
+
+.quiz-results .btn {
+  margin: 0;
+}
 /* Utilities */
 
 .sr-only {
@@ -311,6 +327,7 @@ main {
     --fs-title: 2.2rem;
     --fs-subtitle: 1rem;
     --fs-choice: 0.9rem;
+    --fs-score: 0.8.5rem;
     --fs-btn: 0.8rem;
     --max-width: 95%;
   }

@@ -54,10 +54,16 @@ export default function App() {
     return results?.filter((r) => r.isCorrect).length ?? 0;
   }, [results]);
 
+  // Save results
   function handleCheckAnswers() {
     const perQuestion = computeResults();
     setResults(perQuestion);
     setSubmitted(true);
+  }
+
+  // Start a new quiz
+  function handleNewQuiz() {
+    setNewQuiz(true);
   }
 
   // Fetch questions when quiz starts
@@ -112,6 +118,7 @@ export default function App() {
             onCheckAnswers={handleCheckAnswers}
             score={score}
             results={results}
+            onNewQuiz={handleNewQuiz}
           />
         )
       ) : (
