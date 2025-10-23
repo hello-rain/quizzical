@@ -5,24 +5,37 @@ import decodeHtml from "./utils/html";
 import normalize from "./utils/normalize";
 
 export default function App() {
-  // App states
-  const [isStarted, setIsStarted] = useState(false);
-  const [quizKey, setQuizKey] = useState(0);
+  // 1. State
+  // state: app / server
   const [questions, setQuestions] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [answers, setAnswers] = useState({}); // { [questionIndex]: choiceValue }
-  const [isSubmitted, setSubmitted] = useState(false);
   const [results, setResults] = useState([]);
 
-  // App refs
+  // state: UI
+  const [isStarted, setIsStarted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  // state: user data
+  const [answers, setAnswers] = useState({}); // { [questionIndex]: choiceValue }
+  const [isSubmitted, setSubmitted] = useState(false);
+
+  // control keys / misc
+  const [quizKey, setQuizKey] = useState(0);
+
+  // 2. Refs
   const fetchedRef = useRef(false);
 
+  // 3. Derived
+  const score = useMemo(() => {
+    return results?.filter((r) => r.isCorrect).length ?? 0;
+  }, [results]);
+
+  // 4. Event handlers
   function startQuiz() {
     setIsStarted(true);
   }
 
-  // Track answers
+  // Save answers
   function handleAnswer(questionIndex, answer) {
     setAnswers((prevAnswers) => ({ ...prevAnswers, [questionIndex]: answer }));
   }
@@ -49,11 +62,6 @@ export default function App() {
     return perQuestion;
   }
 
-  // Compute score when results are available
-  const score = useMemo(() => {
-    return results?.filter((r) => r.isCorrect).length ?? 0;
-  }, [results]);
-
   // Save results
   function handleCheckAnswers() {
     const perQuestion = computeResults();
@@ -71,6 +79,31 @@ export default function App() {
     setQuizKey((k) => k + 1);
   }
 
+  // 5. Async helpers
+  async function fetchQuestions(controller) {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        "https://opentdb.com/api.php?amount=5&type=multiple",
+        {
+          signal: controller.signal,
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setQuestions(data.results);
+    } catch (error) {
+      if (error.name !== "AbortError") setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  // 6. Side-effects (fetching)
   // Fetch questions when quiz starts
   useEffect(() => {
     // Run the fetch once when the quiz starts (prevents duplicate requests in dev/StrictMode)
@@ -79,33 +112,11 @@ export default function App() {
 
     const controller = new AbortController();
 
-    async function fetchData() {
-      setLoading(true);
-      try {
-        const response = await fetch(
-          "https://opentdb.com/api.php?amount=5&type=multiple",
-          {
-            signal: controller.signal,
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        setQuestions(data.results);
-      } catch (error) {
-        if (error.name !== "AbortError") setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchData();
+    fetchQuestions(controller);
     return () => controller.abort();
   }, [isStarted, quizKey]);
 
+  // 7. Render
   // Render start screen. After starting, show loading, error, or questions.
   return (
     <main>

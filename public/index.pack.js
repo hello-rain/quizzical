@@ -449,19 +449,22 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 function App() {
-  // App states
-  var _useState = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
+  // 1. State
+  // state: app / server
+  var _useState = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])([]),
     _useState2 = _slicedToArray(_useState, 2),
-    isStarted = _useState2[0],
-    setIsStarted = _useState2[1];
-  var _useState3 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(0),
+    questions = _useState2[0],
+    setQuestions = _useState2[1];
+  var _useState3 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])([]),
     _useState4 = _slicedToArray(_useState3, 2),
-    quizKey = _useState4[0],
-    setQuizKey = _useState4[1];
-  var _useState5 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])([]),
+    results = _useState4[0],
+    setResults = _useState4[1];
+
+  // state: UI
+  var _useState5 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
     _useState6 = _slicedToArray(_useState5, 2),
-    questions = _useState6[0],
-    setQuestions = _useState6[1];
+    isStarted = _useState6[0],
+    setIsStarted = _useState6[1];
   var _useState7 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(false),
     _useState8 = _slicedToArray(_useState7, 2),
     loading = _useState8[0],
@@ -470,6 +473,8 @@ function App() {
     _useState0 = _slicedToArray(_useState9, 2),
     error = _useState0[0],
     setError = _useState0[1];
+
+  // state: user data
   var _useState1 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])({}),
     _useState10 = _slicedToArray(_useState1, 2),
     answers = _useState10[0],
@@ -478,18 +483,30 @@ function App() {
     _useState12 = _slicedToArray(_useState11, 2),
     isSubmitted = _useState12[0],
     setSubmitted = _useState12[1];
-  var _useState13 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])([]),
-    _useState14 = _slicedToArray(_useState13, 2),
-    results = _useState14[0],
-    setResults = _useState14[1];
 
-  // App refs
+  // control keys / misc
+  var _useState13 = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useState"])(0),
+    _useState14 = _slicedToArray(_useState13, 2),
+    quizKey = _useState14[0],
+    setQuizKey = _useState14[1];
+
+  // 2. Refs
   var fetchedRef = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useRef"])(false);
+
+  // 3. Derived
+  var score = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useMemo"])(function () {
+    var _results$filter$lengt;
+    return (_results$filter$lengt = results === null || results === void 0 ? void 0 : results.filter(function (r) {
+      return r.isCorrect;
+    }).length) !== null && _results$filter$lengt !== void 0 ? _results$filter$lengt : 0;
+  }, [results]);
+
+  // 4. Event handlers
   function startQuiz() {
     setIsStarted(true);
   }
 
-  // Track answers
+  // Save answers
   function handleAnswer(questionIndex, answer) {
     setAnswers(function (prevAnswers) {
       return _objectSpread(_objectSpread({}, prevAnswers), {}, _defineProperty({}, questionIndex, answer));
@@ -515,14 +532,6 @@ function App() {
     return perQuestion;
   }
 
-  // Compute score when results are available
-  var score = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useMemo"])(function () {
-    var _results$filter$lengt;
-    return (_results$filter$lengt = results === null || results === void 0 ? void 0 : results.filter(function (r) {
-      return r.isCorrect;
-    }).length) !== null && _results$filter$lengt !== void 0 ? _results$filter$lengt : 0;
-  }, [results]);
-
   // Save results
   function handleCheckAnswers() {
     var perQuestion = computeResults();
@@ -542,63 +551,65 @@ function App() {
     });
   }
 
+  // 5. Async helpers
+  function fetchQuestions(_x) {
+    return _fetchQuestions.apply(this, arguments);
+  } // 6. Side-effects (fetching)
   // Fetch questions when quiz starts
+  function _fetchQuestions() {
+    _fetchQuestions = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee(controller) {
+      var response, data, _t;
+      return _regenerator().w(function (_context) {
+        while (1) switch (_context.p = _context.n) {
+          case 0:
+            setLoading(true);
+            _context.p = 1;
+            _context.n = 2;
+            return fetch("https://opentdb.com/api.php?amount=5&type=multiple", {
+              signal: controller.signal
+            });
+          case 2:
+            response = _context.v;
+            if (response.ok) {
+              _context.n = 3;
+              break;
+            }
+            throw new Error("HTTP error! Status: ".concat(response.status));
+          case 3:
+            _context.n = 4;
+            return response.json();
+          case 4:
+            data = _context.v;
+            setQuestions(data.results);
+            _context.n = 6;
+            break;
+          case 5:
+            _context.p = 5;
+            _t = _context.v;
+            if (_t.name !== "AbortError") setError(_t.message);
+          case 6:
+            _context.p = 6;
+            setLoading(false);
+            return _context.f(6);
+          case 7:
+            return _context.a(2);
+        }
+      }, _callee, null, [[1, 5, 6, 7]]);
+    }));
+    return _fetchQuestions.apply(this, arguments);
+  }
   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react__["useEffect"])(function () {
     // Run the fetch once when the quiz starts (prevents duplicate requests in dev/StrictMode)
     if (!isStarted || fetchedRef.current) return;
     fetchedRef.current = true;
     var controller = new AbortController();
-    function fetchData() {
-      return _fetchData.apply(this, arguments);
-    }
-    function _fetchData() {
-      _fetchData = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
-        var response, data, _t;
-        return _regenerator().w(function (_context) {
-          while (1) switch (_context.p = _context.n) {
-            case 0:
-              setLoading(true);
-              _context.p = 1;
-              _context.n = 2;
-              return fetch("https://opentdb.com/api.php?amount=5&type=multiple", {
-                signal: controller.signal
-              });
-            case 2:
-              response = _context.v;
-              if (response.ok) {
-                _context.n = 3;
-                break;
-              }
-              throw new Error("HTTP error! Status: ".concat(response.status));
-            case 3:
-              _context.n = 4;
-              return response.json();
-            case 4:
-              data = _context.v;
-              setQuestions(data.results);
-              _context.n = 6;
-              break;
-            case 5:
-              _context.p = 5;
-              _t = _context.v;
-              if (_t.name !== "AbortError") setError(_t.message);
-            case 6:
-              _context.p = 6;
-              setLoading(false);
-              return _context.f(6);
-            case 7:
-              return _context.a(2);
-          }
-        }, _callee, null, [[1, 5, 6, 7]]);
-      }));
-      return _fetchData.apply(this, arguments);
-    }
-    fetchData();
+    fetchQuestions(controller);
     return function () {
       return controller.abort();
     };
   }, [isStarted, quizKey]);
 
+  // 7. Render
   // Render start screen. After starting, show loading, error, or questions.
   return /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_react_jsx_runtime__["jsx"])("main", {
     children: isStarted ? loading ? /*#__PURE__*/__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_react_jsx_runtime__["jsx"])("p", {
