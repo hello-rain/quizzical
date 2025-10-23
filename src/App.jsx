@@ -35,11 +35,17 @@ export default function App() {
     setIsStarted(true);
   }
 
-  // Save answers
+  // startQuiz - set the app into the quiz view and trigger fetching
+  function startQuiz() {
+    setIsStarted(true);
+  }
+
+  // handleAnswer - record the user's selected answer for a question
   function handleAnswer(questionIndex, answer) {
     setAnswers((prevAnswers) => ({ ...prevAnswers, [questionIndex]: answer }));
   }
 
+  // computeResults - grade the current answers and return per-question results
   function computeResults() {
     const perQuestion = questions.map((question, questionIndex) => {
       const correctRaw = question?.correct_answer ?? "";
@@ -62,14 +68,13 @@ export default function App() {
     return perQuestion;
   }
 
-  // Save results
+  // handleCheckAnswers - compute and store grading results, mark quiz as submitted
   function handleCheckAnswers() {
     const perQuestion = computeResults();
     setResults(perQuestion);
     setSubmitted(true);
   }
-
-  // Start a new quiz
+  // handleNewQuiz - reset quiz state and trigger a fresh fetch (via quizKey)
   function handleNewQuiz() {
     setAnswers({});
     setResults([]);
