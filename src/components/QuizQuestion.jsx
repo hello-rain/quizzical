@@ -36,28 +36,36 @@ function QuizQuestion({
           // Decode for display / comparison
           const choiceValue = decodeHtml(choice); // decoded text for this choice
           const selectedValue = decodeHtml(selected ?? ""); // live selected from props (pre-submit)
+          const matchesPreSubmit = choiceValue === selectedValue;
 
-          const isSelectedBeforeSubmit = choiceValue === selectedValue;
-
-          // after submit, use the graded result snapshot
           const graded = questionResult ?? null;
-          const correctChoice = question.correct_answer;
+          const correctChoice = graded?.correctAnswer ?? null;
           const gradedSelected = graded?.selectedAnswer ?? null; // snapshot after grading
 
-          const isSelectedAfterSubmit = choiceValue === gradedSelected;
+          const matchesCorrect = choiceValue === correctChoice;
+          const matchesGradedSelected = gradedSelected === choiceValue;
 
-          const isSelected = !isSubmitted && isSelectedBeforeSubmit;
-          const isCorrect = isSubmitted && correctChoice === choiceValue;
-          const isIncorrect =
-            isSubmitted &&
-            isSelectedAfterSubmit &&
-            correctChoice != choiceValue;
+          let isSelected = false;
+          let isCorrect = false;
+          let isIncorrect = false;
+          let isUnselected = false;
+
+          if (!isSubmitted) {
+            // before submit: only highlight the currenly selected choice
+            isSelected = matchesPreSubmit;
+          } else {
+            // after submit: grading rules (priority: correct > incorrect > unselected)
+            isCorrect = matchesCorrect;
+            isIncorrect = matchesGradedSelected && !matchesCorrect;
+            isUnselected = !matchesGradedSelected && !matchesCorrect;
+          }
 
           const className = clsx("quiz-questions__choice-btn", {
             // Only show the visual 'selected' state before submitting
             "quiz-questions__choice-btn--selected": isSelected,
 
             // After submitting, show the grading feedback
+            "quiz-questions__choice-btn--unselected": isUnselected,
             "quiz-questions__choice-btn--correct": isCorrect,
             "quiz-questions__choice-btn--incorrect": isIncorrect,
           });
